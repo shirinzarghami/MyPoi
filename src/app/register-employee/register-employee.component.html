@@ -13,7 +13,7 @@
             <label for="streetName" class="required">Adres </label>
             <input id="streetName" type="text" formControlName="streetName">
 
-            <label for="houseNumber">Huisnummer </label>
+            <label for="houseNumber" class="required">Huisnummer </label>
             <input id="houseNumber" type="text" formControlName="houseNumber">
 
             <label for="postalCode" class="required">postcode </label>
@@ -25,11 +25,12 @@
             <label for="phoneNumber">Telefoonnummer </label>
             <input id="phoneNumber" type="text" formControlName="phoneNumber">
 
-            <label for="emailAddress">E-mailadres </label>
+            <label for="emailAddress" class="required">E-mailadres </label>
             <input id="emailAddress" type="text" formControlName="emailAddress">
 
             <label for="preferredActivityId">Voorkeur </label>
-            <select name="preferredActivityId" id="preferredActivityId" class="input" formControlName="preferredActivityId"> 
+            <select class="input" name="preferredActivityId" id="preferredActivityId" class="input"
+                formControlName="preferredActivityId">
                 <ng-container *ngFor="let activity of preferredActivities">
                     <option [value]="activity.id">{{activity.name}}</option>
                 </ng-container>
@@ -53,7 +54,8 @@
                 <label for="lactoseFree">Geen lactose</label>
             </div>
             <div class="checkboxContainer">
-                <input class="checkbox" type="checkbox" formControlName="hasEnteredFormTruthfully" id="hasEnteredFormTruthfully">
+                <input class="checkbox checkbox_hasEnteredFormTruthfullyInput" type="checkbox" formControlName="hasEnteredFormTruthfully"
+                    id="hasEnteredFormTruthfully">
                 <label for="hasEnteredFormTruthfully">Ik verklaar dat dit formulier naar waarheid is ingevuld</label>
             </div>
 

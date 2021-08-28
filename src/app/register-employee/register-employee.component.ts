@@ -25,19 +25,19 @@ export class RegisterEmployeeComponent {
   registrationForm = this.fb.group({
     givenName: ['', Validators.required],
     insertions: [''],
-    familyName: [''],
-    streetName:[''],
-    houseNumber:[''],   
-    postalCode:[''],
-    city: [''],
+    familyName: ['', Validators.required],
+    streetName:['', Validators.required],
+    houseNumber:['', Validators.required],   
+    postalCode:['', Validators.required],
+    city: ['', Validators.required],
     phoneNumber: [''],
-    emailAddress: [''],
+    emailAddress: ['', Validators.email],
     preferredActivityId:[''],
-    vegan: [''],
+    vegan: false,
     vegetarian: false,
     glutenFree: false,
     lactoseFree: false,
-    hasEnteredFormTruthfully: false 
+    hasEnteredFormTruthfully: [false, Validators.requiredTrue] 
   });
 
   public onSubmit():void {

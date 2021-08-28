@@ -1,85 +1,62 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import "~@ng-select/ng-select/themes/material.theme.css";
 
 $background-color: #D7CCC8;
+$gray-color: #9c9a9a;
 $font-family: 'Roboto', sans-serif;
 
-
-@mixin message($fontcolor: #90A4AE){
-  color: $fontcolor;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-}
-
-@mixin input($bkgnd: #F5F5F5){
+@mixin input($bkgnd: $background-color) {
   font-family: $font-family;
   display: inherit;
   width: 50%;
-  margin: 0 0 15px;
-  padding: 10px;
-  font-size: 15px;
+  margin: 0 0 1rem;
+  padding: 0.6rem;
+  font-size: 1rem;
   box-sizing: border-box;
   border-width: 0 0 1px;
-  border-color: #9c9a9a
+  border-color: $gray-color
 }
 
-body{
-  font-family: $font-family;
-  background: $background-color;
-}
-
-
-.container{
-  padding: 8% 0 0;
-  margin: auto;
-}
-
-.form{
-  position: relative;
-  z-index: 1;
-  margin: 0 auto 100px;
-  padding: 45px;
-  background: #FFFFFF;
-}
 .required:after {
   content:"*";
-  color: #9c9a9a;
+  color: $gray-color;
 }
 
-.form {
-  input{
-    @include input; 
+.container{
+  font-family: $font-family;
+  padding: 8% 0 0;
+  margin: auto;
+  .form {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto 5rem;
+    padding: 2rem;
+    input{
+      @include input; 
+    }
+    .input{
+      @include input; 
+    }
+    .checkboxContainer{
+      display: flex;
+    }
+    .checkbox{
+      width: 2rem;
+      &-label{
+        display: block;
+      }
+      &_hasEnteredFormTruthfullyInput{
+        width: 0.75rem;
+        margin: 0.2rem;
+      }
+    }
   
-    
-  }
-  .checkboxContainer{
-    display: flex;
-  }
-  .checkbox{
-    width: 2rem;
-    &-label{
-      display: block;
-      padding: 1rem 0;
+    label {
+      color: $gray-color;
+      font-family: $font-family;
+      margin: 0 0 1rem;
+      outline: 0;
+      font-size: 1rem;
     }
   }
-
-  .input {
-    @include input; 
-   
-  }
-  label {
-    color: #9c9a9a;
-    font-family: $font-family;
-    margin: 0 0 15px;
-  
-    outline: 0;
-    font-size: 15px;
-  }
-  
-}
-
-.form .register-form{
-  display: none;
 }
 
