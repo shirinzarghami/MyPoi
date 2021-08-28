@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { RegisterEmployeeService } from '../register-employee.service';
 
 interface Activity {
   id: number
@@ -11,9 +12,9 @@ interface Activity {
   styleUrls: ['./register-employee.component.scss']
 })
 export class RegisterEmployeeComponent {
-  selectedOption=0;
+  selectedOption = 0;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private registerEmployeeService: RegisterEmployeeService) { }
 
   //TODO: Check id of preferredActivities with BE
   preferredActivities: Activity[] = [
@@ -26,22 +27,22 @@ export class RegisterEmployeeComponent {
     givenName: ['', Validators.required],
     insertions: [''],
     familyName: ['', Validators.required],
-    streetName:['', Validators.required],
-    houseNumber:['', Validators.required],   
-    postalCode:['', Validators.required],
+    streetName: ['', Validators.required],
+    houseNumber: ['', Validators.required],
+    postalCode: ['', Validators.required],
     city: ['', Validators.required],
     phoneNumber: [''],
     emailAddress: ['', Validators.email],
-    preferredActivityId:[''],
+    preferredActivityId: [''],
     vegan: false,
     vegetarian: false,
     glutenFree: false,
     lactoseFree: false,
-    hasEnteredFormTruthfully: [false, Validators.requiredTrue] 
+    hasEnteredFormTruthfully: [false, Validators.requiredTrue]
   });
 
-  public onSubmit():void {
-    // TODO: Use EventEmitter with form value
+  public onSubmit(): void {
+    this.registerEmployeeService.registerEmployee(this.registrationForm.value).subscribe(() => console.log("Empolyee is registerd"));
     console.warn(this.registrationForm.value);
   }
 
