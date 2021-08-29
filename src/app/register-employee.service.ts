@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Activity } from './activity';
-import { Employee } from './employee';
+import { Employee, EmployeeListApiModel } from './employee';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,8 +23,8 @@ export class RegisterEmployeeService {
     //   );
   }
 
-  getEmployee(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.registerEmployeeUrl);
+  getEmployee(): Observable<EmployeeListApiModel> {
+    return this.http.get<EmployeeListApiModel>(this.registerEmployeeUrl);
   }
 
   getActivity(): Observable<Activity[]> {

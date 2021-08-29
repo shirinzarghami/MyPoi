@@ -16,3 +16,17 @@ export interface Employee {
     lactoseFree: boolean,
     hasEnteredFormTruthfully: boolean
 }
+
+export interface EmployeeListApiModel {
+    TotalCount: number,
+    Result: [EmployeeListItem]
+}
+
+export interface EmployeeListItem {
+    Id: number,
+    GivenName: string,
+    Insertions: string,
+    FamilyName: string,
+    EmailAddress: string,
+    PreferredActivity: string
+}

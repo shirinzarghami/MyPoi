@@ -8,11 +8,16 @@ import { RegisterEmployeeComponent } from './register-employee/register-employee
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ShowEmployeeComponent } from './show-employee/show-employee.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterEmployeeComponent
+    RegisterEmployeeComponent,
+    ShowEmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +27,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     BrowserAnimationsModule,
     NgSelectModule,
     MatCheckboxModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
     HttpClientModule,
   ],
   providers: [],
