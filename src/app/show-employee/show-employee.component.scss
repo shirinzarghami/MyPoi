@@ -1,9 +1,28 @@
 @import "../../assets/shared.scss";
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-table {
-  width: 100%;
-}
-.input {
-  @include input;
+.showEmployeeContainer {
+  &_header {
+    padding: 1rem;
+    display: flex;
+    width: 50%;
+    padding: 1rem;
+    display: flex;
+    flex-flow: column;
+    &_preferredActivity {
+      label {
+        @include label;
+      }
+      &_input {
+        @include input;
+      }
+    }
+    &_addEmployee_button {
+      width: max-content;
+    }
+  }
+  table {
+    width: 100rem;
+    margin: auto;
+  }
 }

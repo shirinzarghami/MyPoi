@@ -15,3 +15,11 @@ $font-family: 'Roboto', sans-serif;
   border-width: 0 0 1px;
   border-color: $gray-color
 }
+
+@mixin label {
+    color: $gray-color;
+    font-family: $font-family;
+    margin: 0 0 1rem;
+    outline: 0;
+    font-size: 1rem;
+}

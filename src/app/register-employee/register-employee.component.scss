@@ -35,11 +35,7 @@
     }
   
     label {
-      color: $gray-color;
-      font-family: $font-family;
-      margin: 0 0 1rem;
-      outline: 0;
-      font-size: 1rem;
+      @include label;
     }
   }
 }

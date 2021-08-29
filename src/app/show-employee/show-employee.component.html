@@ -1,11 +1,16 @@
-<ng-container *ngIf="employeesData$ | async ">
-    <div>
-        <select class="input" name="preferredActivityId" id="preferredActivityId" class="input"
-            [(ngModel)]="selectedActivity" (ngModelChange)="onChange($event)">  
-            <ng-container *ngFor="let activity of (preferredActivities$ | async )">
-                <option [value]="activity.Id">{{activity.Name}}</option>
-            </ng-container>
-        </select>
+<div class="showEmployeeContainer" *ngIf="employeesData$ | async ">
+    <div class="showEmployeeContainer_header">
+        <div class="showEmployeeContainer_header_preferredActivity">
+            <label for="preferredActivity">Voorkeur </label>
+            <select name="preferredActivity" id="preferredActivityId" class="showEmployeeContainer_header_preferredActivity_input"
+                [(ngModel)]="selectedActivity" (ngModelChange)="onChange($event)">  
+                <ng-container *ngFor="let activity of (preferredActivities$ | async )">
+                    <option [value]="activity.Id">{{activity.Name}}</option>
+                </ng-container>
+            </select>
+        </div>
+
+        <button class="showEmployeeContainer_header_addEmployee_button" mat-raised-button color="primary">Toevoegen</button>
     </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="givenName">
@@ -27,4 +32,4 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-</ng-container>
+</div>
