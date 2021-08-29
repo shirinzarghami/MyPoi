@@ -1,4 +1,12 @@
 <ng-container *ngIf="employeesData$ | async ">
+    <div>
+        <select class="input" name="preferredActivityId" id="preferredActivityId" class="input"
+            [(ngModel)]="selectedActivity" (ngModelChange)="onChange($event)">  
+            <ng-container *ngFor="let activity of (preferredActivities$ | async )">
+                <option [value]="activity.Id">{{activity.Name}}</option>
+            </ng-container>
+        </select>
+    </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="givenName">
             <th mat-header-cell *matHeaderCellDef> Naam </th>

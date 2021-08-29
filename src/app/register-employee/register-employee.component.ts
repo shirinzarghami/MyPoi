@@ -18,7 +18,6 @@ export class RegisterEmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.preferredActivities$ = this.registerEmployeeService.getActivity();
-    this.registerEmployeeService.getActivity().subscribe(value => { console.log(value) })
   }
 
   registrationForm = this.fb.group({
