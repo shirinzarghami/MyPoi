@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+$background-color: #D7CCC8;
+$gray-color: #9c9a9a;
+$font-family: 'Roboto', sans-serif;
+
+@mixin input($bkgnd: $background-color) {
+  font-family: $font-family;
+  display: inherit;
+  width: 50%;
+  margin: 0 0 1rem;
+  padding: 0.6rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border-width: 0 0 1px;
+  border-color: $gray-color
+}
