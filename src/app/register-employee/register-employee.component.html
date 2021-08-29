@@ -31,8 +31,8 @@
             <label for="preferredActivityId">Voorkeur </label>
             <select class="input" name="preferredActivityId" id="preferredActivityId" class="input"
                 formControlName="preferredActivityId">
-                <ng-container *ngFor="let activity of preferredActivities">
-                    <option [value]="activity.id">{{activity.name}}</option>
+                <ng-container *ngFor="let activity of (preferredActivities$ | async )">
+                    <option [value]="activity.Id">{{activity.Name}}</option>
                 </ng-container>
             </select>
 
