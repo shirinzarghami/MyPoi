@@ -6,8 +6,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Activity } from '../activity';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-show-employes',
   templateUrl: './show-employes.component.html',
@@ -34,7 +32,9 @@ export class ShowEmployesComponent implements OnInit {
   public onChange($event: any): void {
     if (this.activities.length > 0) {
       let selectedActivity = this.activities?.find(activity => activity.Id == $event)
-      selectedActivity && selectedActivity.Name ? this.dataSource.filter = selectedActivity.Name : ""
+      if (selectedActivity && selectedActivity.Name) {
+        this.dataSource.filter = selectedActivity.Name
+      }
     }
   }
 
@@ -42,7 +42,7 @@ export class ShowEmployesComponent implements OnInit {
     this.router.navigateByUrl('/registerEmployee');
   }
 
-  showEmployeeInfo(id: number) {
+  public redirectToShowEmployeeInfo(id: number): void {
     this.router.navigateByUrl(`/registerEmployee/${id}`)
   }
 }

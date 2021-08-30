@@ -14,26 +14,26 @@ export class RegisterEmployeeService {
   getEmployeeUrl = "/api/Employee";
   activityUrl = "/api/Activity";
 
-  registerEmployee(employee: Employee): Observable<string> {
+  public registerEmployee(employee: Employee): Observable<string> {
     return of("Employee is registered");
-
+    // Posting to the server return internal server error(500). Therefor this code has been commented out.
     // this.http.post<Employee>(this.registerEmployeeUrl, employee)
     //   .pipe(
     //     catchError(this.handleError('registerEmployee', employee))
     //   );
   }
 
-  getEmployes(): Observable<EmployeeListApiModel> {
+  public getEmployes(): Observable<EmployeeListApiModel> {
     return this.http.get<EmployeeListApiModel>(this.getEmployeeUrl);
   }
 
-  getActivity(): Observable<Activity[]> {
+  public getActivity(): Observable<Activity[]> {
     return this.http.get<Activity[]>(this.activityUrl);
   }
 
-geEmployee(id:number): Observable<Employee> {
-  return this.http.get<Employee>(`${this.getEmployeeUrl}/${id}`)
-}
+  public geEmployee(id: number): Observable<Employee> {
+    return this.http.get<Employee>(`${this.getEmployeeUrl}/${id}`)
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

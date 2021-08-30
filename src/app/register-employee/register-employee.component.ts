@@ -7,7 +7,6 @@ import { Activity } from '../activity';
 import { Employee } from '../employee';
 import { RegisterEmployeeService } from '../register-employee.service';
 
-
 @Component({
   selector: 'app-register-employee',
   templateUrl: './register-employee.component.html',
@@ -15,9 +14,9 @@ import { RegisterEmployeeService } from '../register-employee.service';
 })
 export class RegisterEmployeeComponent implements OnInit {
   selectedOption = 0;
-  preferredActivities$: Observable<Activity[]> = of([]);
+  preferredActivities$!: Observable<Activity[]>;
   employee!: Observable<Employee>;
-  showEmployeeDetailsHeader = false;
+  isNewEmployee = true;
   pageTitel = "Nieuwe medewerker";
 
   constructor(private fb: FormBuilder, private registerEmployeeService: RegisterEmployeeService, private route: ActivatedRoute,) { }
@@ -57,7 +56,7 @@ export class RegisterEmployeeComponent implements OnInit {
       selectedEmployee => {
         this.registrationForm.patchValue(selectedEmployee);
         this.registrationForm.disable();
-        this.showEmployeeDetailsHeader = true;
+        this.isNewEmployee = false;
         this.pageTitel = `${selectedEmployee.GivenName} ${selectedEmployee.FamilyName}`
       })
   }

@@ -4,7 +4,7 @@
         <button class="registerEmployee_container_form_btn" mat-mini-fab color="primary" [routerLink]="['/showEmployes']">
             <mat-icon>navigate_before</mat-icon>
         </button>
-        <button *ngIf="!showEmployeeDetailsHeader" class="registerEmployee_container_form_btn" type="submit"
+        <button *ngIf="isNewEmployee" class="registerEmployee_container_form_btn" type="submit"
             mat-mini-fab color="primary" [disabled]="!registrationForm.valid">
             <mat-icon>save</mat-icon>
         </button>

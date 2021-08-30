@@ -30,6 +30,6 @@
             <td mat-cell *matCellDef="let element"> {{element.PreferredActivity}} </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr class="showEmployeeContainer_table_row" mat-row (click)= "showEmployeeInfo(row.Id)" *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr class="showEmployeeContainer_table_row" mat-row (click)= "redirectToShowEmployeeInfo(row.Id)" *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 </div>
