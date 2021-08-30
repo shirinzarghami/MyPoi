@@ -42,9 +42,4 @@ export class RegisterEmployeeComponent implements OnInit {
     this.registerEmployeeService.registerEmployee(this.registrationForm.value).subscribe(() => console.log("Empolyee is registerd"));
     console.warn(this.registrationForm.value);
   }
-
-}
-
-function Of(arg0: never[]): Observable<Activity[]> {
-  throw new Error('Function not implemented.');
 }

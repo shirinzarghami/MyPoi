@@ -10,7 +10,7 @@
             </select>
         </div>
 
-        <button class="showEmployeeContainer_header_addEmployee_button" mat-raised-button color="primary">Toevoegen</button>
+        <button class="showEmployeeContainer_header_addEmployee_button" mat-raised-button color="primary" (click)="registerNewEmployee()">Toevoegen</button>
     </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="givenName">

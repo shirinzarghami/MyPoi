@@ -4,6 +4,7 @@ import { Employee, EmployeeListApiModel, EmployeeListItem } from '../employee';
 import { Observable, of } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { Activity } from '../activity';
+import { Router } from '@angular/router';
 
 
 
@@ -20,21 +21,25 @@ export class ShowEmployeeComponent implements OnInit {
   selectedActivity = "";
   activities: Activity[] = [];
 
-  constructor(private registerEmployeeService: RegisterEmployeeService) { }
+  constructor(private registerEmployeeService: RegisterEmployeeService, private router: Router) { }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.preferredActivities$ = this.registerEmployeeService.getActivity();
     this.employeesData$.subscribe(employee => {
       this.dataSource.data = employee.Result
     })
 
-    this.preferredActivities$.subscribe(activities => {this.activities = activities})
+    this.preferredActivities$.subscribe(activities => { this.activities = activities })
   }
 
-  onChange($event: any) {
+  public onChange($event: any): void {
     if (this.activities.length > 0) {
       let selectedActivity = this.activities?.find(activity => activity.Id == $event)
       selectedActivity && selectedActivity.Name ? this.dataSource.filter = selectedActivity.Name : ""
     }
+  }
+
+  public registerNewEmployee(): void {
+    this.router.navigateByUrl('/registerEmployee');
   }
 }
