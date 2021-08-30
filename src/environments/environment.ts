@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://api-trips-prelive.mypoiworld.com'
+  apiUrl: ''
 };
 
 /*
