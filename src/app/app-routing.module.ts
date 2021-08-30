@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
-import { ShowEmployeeComponent } from './show-employee/show-employee.component';
+import { ShowEmployesComponent } from './show-employes/show-employes.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/showEmployees', pathMatch: 'full' },
-  { path: 'showEmployees', component: ShowEmployeeComponent},
+  { path: '', redirectTo: '/showEmployes', pathMatch: 'full' },
+  { path: 'showEmployes', component: ShowEmployesComponent},
   { path: 'registerEmployee', component: RegisterEmployeeComponent}];
 
 

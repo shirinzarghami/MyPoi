@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-show-employee',
-  templateUrl: './show-employee.component.html',
-  styleUrls: ['./show-employee.component.scss']
+  selector: 'app-show-employes',
+  templateUrl: './show-employes.component.html',
+  styleUrls: ['./show-employes.component.scss']
 })
-export class ShowEmployeeComponent implements OnInit {
+export class ShowEmployesComponent implements OnInit {
   displayedColumns: string[] = ['givenName', 'registeredAtUTC', 'emailAddress', 'preferredActivity'];
   dataSource = new MatTableDataSource<EmployeeListItem>();
   preferredActivities$: Observable<Activity[]> = of([]);
