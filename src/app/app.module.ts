@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
+import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -18,7 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterEmployeeComponent,
+    EmployeeFormComponent,
     ShowEmployesComponent
   ],
   imports: [

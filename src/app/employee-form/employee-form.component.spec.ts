@@ -5,15 +5,15 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RegisterEmployeeService } from '../register-employee.service';
 
-import { RegisterEmployeeComponent } from './register-employee.component';
+import { EmployeeFormComponent } from './employee-form.component';
 
 describe('RegisterEmployeeComponent', () => {
-  let component: RegisterEmployeeComponent;
-  let fixture: ComponentFixture<RegisterEmployeeComponent>;
+  let component: EmployeeFormComponent;
+  let fixture: ComponentFixture<EmployeeFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RegisterEmployeeComponent],
+      declarations: [EmployeeFormComponent],
       providers: [
         FormBuilder,
         RegisterEmployeeService
@@ -23,7 +23,7 @@ describe('RegisterEmployeeComponent', () => {
       .compileComponents();
   });
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegisterEmployeeComponent);
+    fixture = TestBed.createComponent(EmployeeFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,12 +5,12 @@
             <mat-icon>navigate_before</mat-icon>
         </button>
         <button *ngIf="isNewEmployee" class="registerEmployee_container_form_btn" type="submit"
-            mat-mini-fab color="primary" [disabled]="!registrationForm.valid">
+            mat-mini-fab color="primary" [disabled]="!registrationForm.valid" (click)="onSubmit()">
             <mat-icon>save</mat-icon>
         </button>
     </div>
     <div class="registerEmployee_container_form">
-        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="registrationForm">
             <label for="first-name" class="required"> Voornaam</label>
             <input class="registerEmployee_container_form_input" id="first-name" type="text" formControlName="GivenName"
                 required>

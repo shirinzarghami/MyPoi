@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Activity } from '../activity';
@@ -8,18 +8,18 @@ import { Employee } from '../employee';
 import { RegisterEmployeeService } from '../register-employee.service';
 
 @Component({
-  selector: 'app-register-employee',
-  templateUrl: './register-employee.component.html',
-  styleUrls: ['./register-employee.component.scss']
+  selector: 'app-employee-form',
+  templateUrl: './employee-form.component.html',
+  styleUrls: ['./employee-form.component.scss']
 })
-export class RegisterEmployeeComponent implements OnInit {
+export class EmployeeFormComponent implements OnInit {
   selectedOption = 0;
   preferredActivities$!: Observable<Activity[]>;
   employee!: Observable<Employee>;
   isNewEmployee = true;
   pageTitel = "Nieuwe medewerker";
 
-  constructor(private fb: FormBuilder, private registerEmployeeService: RegisterEmployeeService, private route: ActivatedRoute,) { }
+  constructor(private fb: FormBuilder, private registerEmployeeService: RegisterEmployeeService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     if (this.route.snapshot.params.id) {
@@ -47,8 +47,10 @@ export class RegisterEmployeeComponent implements OnInit {
   });
 
   public onSubmit(): void {
-    this.registerEmployeeService.registerEmployee(this.registrationForm.value).subscribe(() => console.log("Empolyee is registerd"));
-    console.warn(this.registrationForm.value);
+    this.registerEmployeeService.registerEmployee(this.registrationForm.value).subscribe(() => {
+      console.log("Empolyee is registerd")
+      this.router.navigateByUrl('/showEmployes')
+    });
   }
 
   private ShowEmployeeDetails(): void {
@@ -57,7 +59,7 @@ export class RegisterEmployeeComponent implements OnInit {
         this.registrationForm.patchValue(selectedEmployee);
         this.registrationForm.disable();
         this.isNewEmployee = false;
-        this.pageTitel = `${selectedEmployee.GivenName} ${selectedEmployee.FamilyName}`
+        this.pageTitel = `${selectedEmployee?.GivenName} ${selectedEmployee?.FamilyName}`
       })
   }
 }

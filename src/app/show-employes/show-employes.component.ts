@@ -39,10 +39,10 @@ export class ShowEmployesComponent implements OnInit {
   }
 
   public registerNewEmployee(): void {
-    this.router.navigateByUrl('/registerEmployee');
+    this.router.navigateByUrl('/employeeForm');
   }
 
   public redirectToShowEmployeeInfo(id: number): void {
-    this.router.navigateByUrl(`/registerEmployee/${id}`)
+    this.router.navigateByUrl(`/employeeForm/${id}`)
   }
 }
