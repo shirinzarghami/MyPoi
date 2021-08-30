@@ -1,20 +1,20 @@
 export interface Employee {
-    id: number,
-    givenName: string,
-    insertions: string,
-    familyName: string,
-    registeredAtUTC: Date,
-    streetName: string,
-    houseNumber: string,
-    city: string,
-    phoneNumber: string,
-    emailAddress: string,
-    preferredActivityId: number,
-    vegan: boolean,
-    vegetarian: boolean,
-    glutenFree: boolean,
-    lactoseFree: boolean,
-    hasEnteredFormTruthfully: boolean
+    Id: number,
+    GivenName: string,
+    Insertions: string,
+    FamilyName: string,
+    RegisteredAtUTC: Date,
+    StreetName: string,
+    HouseNumber: string,
+    City: string,
+    PhoneNumber: string,
+    EmailAddress: string,
+    PreferredActivityId: number,
+    Vegan: boolean,
+    Vegetarian: boolean,
+    GlutenFree: boolean,
+    LactoseFree: boolean,
+    HasEnteredFormTruthfully: boolean
 }
 
 export interface EmployeeListApiModel {

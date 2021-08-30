@@ -11,7 +11,7 @@ export class RegisterEmployeeService {
 
   constructor(private http: HttpClient) { }
 
-  registerEmployeeUrl = "/api/Employee";
+  getEmployeeUrl = "/api/Employee";
   activityUrl = "/api/Activity";
 
   registerEmployee(employee: Employee): Observable<string> {
@@ -23,13 +23,17 @@ export class RegisterEmployeeService {
     //   );
   }
 
-  getEmployee(): Observable<EmployeeListApiModel> {
-    return this.http.get<EmployeeListApiModel>(this.registerEmployeeUrl);
+  getEmployes(): Observable<EmployeeListApiModel> {
+    return this.http.get<EmployeeListApiModel>(this.getEmployeeUrl);
   }
 
   getActivity(): Observable<Activity[]> {
     return this.http.get<Activity[]>(this.activityUrl);
   }
+
+geEmployee(id:number): Observable<Employee> {
+  return this.http.get<Employee>(`${this.getEmployeeUrl}/${id}`)
+}
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

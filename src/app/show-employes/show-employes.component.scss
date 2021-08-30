@@ -21,8 +21,11 @@
       width: max-content;
     }
   }
-  table{
+  &_table{
     width: 100rem;
     margin: auto;
+    &_row{
+      cursor: pointer;
+    }
   }
 }

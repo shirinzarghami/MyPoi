@@ -17,7 +17,7 @@ export class ShowEmployesComponent implements OnInit {
   displayedColumns: string[] = ['givenName', 'registeredAtUTC', 'emailAddress', 'preferredActivity'];
   dataSource = new MatTableDataSource<EmployeeListItem>();
   preferredActivities$: Observable<Activity[]> = of([]);
-  employeesData$: Observable<EmployeeListApiModel> = this.registerEmployeeService.getEmployee();
+  employesData$: Observable<EmployeeListApiModel> = this.registerEmployeeService.getEmployes();
   selectedActivity = "";
   activities: Activity[] = [];
 
@@ -25,10 +25,9 @@ export class ShowEmployesComponent implements OnInit {
 
   public ngOnInit(): void {
     this.preferredActivities$ = this.registerEmployeeService.getActivity();
-    this.employeesData$.subscribe(employee => {
+    this.employesData$.subscribe(employee => {
       this.dataSource.data = employee.Result
     })
-
     this.preferredActivities$.subscribe(activities => { this.activities = activities })
   }
 
@@ -41,5 +40,9 @@ export class ShowEmployesComponent implements OnInit {
 
   public registerNewEmployee(): void {
     this.router.navigateByUrl('/registerEmployee');
+  }
+
+  showEmployeeInfo(id: number) {
+    this.router.navigateByUrl(`/registerEmployee/${id}`)
   }
 }
