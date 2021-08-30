@@ -2,6 +2,8 @@
 
 $background-color: #D7CCC8;
 $gray-color: #9c9a9a;
+$blue-color: #2e77bc;
+$shadow-color: #cfcbcb;
 $font-family: 'Roboto', sans-serif;
 
 @mixin input($bkgnd: $background-color) {
@@ -17,6 +19,7 @@ $font-family: 'Roboto', sans-serif;
 }
 
 @mixin label {
+    display: block;
     color: $gray-color;
     font-family: $font-family;
     margin: 0 0 1rem;

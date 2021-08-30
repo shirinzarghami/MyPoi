@@ -1,66 +1,85 @@
-<div class="container">
-    <div class="form">
+<div class="registerEmployee_container">
+    <div class="registerEmployee_container_form">
         <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <div class="registerEmployee_container_header">
+                <h2>Nieuwe medewerker</h2>
+                <button class="registerEmployee_container_form_btn" mat-mini-fab color="primary">
+                    <mat-icon>navigate_before</mat-icon>
+                </button>
+                <button class="registerEmployee_container_form_btn" type="submit" mat-mini-fab color="primary"
+                    [disabled]="!registrationForm.valid">
+                    <mat-icon>save</mat-icon>
+                </button>
+            </div>
+
             <label for="first-name" class="required"> Voornaam</label>
-            <input id="first-name" type="text" formControlName="givenName" required>
+            <input class="registerEmployee_container_form_input" id="first-name" type="text" formControlName="givenName"
+                required>
 
             <label for="insertions"> Tussenvoegsel</label>
-            <input id="insertions" type="text" formControlName="insertions" required>
+            <input class="registerEmployee_container_form_input" id="insertions" type="text"
+                formControlName="insertions">
 
             <label for="familyName" class="required"> Achternaam</label>
-            <input id="familyName" type="text" formControlName="familyName" required>
+            <input class="registerEmployee_container_form_input" id="familyName" type="text"
+                formControlName="familyName" required>
 
             <label for="streetName" class="required">Adres </label>
-            <input id="streetName" type="text" formControlName="streetName">
+            <input class="registerEmployee_container_form_input" id="streetName" type="text"
+                formControlName="streetName">
 
             <label for="houseNumber" class="required">Huisnummer </label>
-            <input id="houseNumber" type="text" formControlName="houseNumber">
+            <input class="registerEmployee_container_form_input" id="houseNumber" type="text"
+                formControlName="houseNumber">
 
             <label for="postalCode" class="required">postcode </label>
-            <input id="postalCode" type="text" formControlName="postalCode">
+            <input class="registerEmployee_container_form_input" id="postalCode" type="text"
+                formControlName="postalCode">
 
             <label for="city" class="required">Woonplaats </label>
-            <input id="city" type="text" formControlName="city">
+            <input class="registerEmployee_container_form_input" id="city" type="text" formControlName="city">
 
             <label for="phoneNumber">Telefoonnummer </label>
-            <input id="phoneNumber" type="text" formControlName="phoneNumber">
+            <input class="registerEmployee_container_form_input" id="phoneNumber" type="text"
+                formControlName="phoneNumber">
 
             <label for="emailAddress" class="required">E-mailadres </label>
-            <input id="emailAddress" type="text" formControlName="emailAddress">
+            <input class="registerEmployee_container_form_input" id="emailAddress" type="text"
+                formControlName="emailAddress">
 
             <label for="preferredActivityId">Voorkeur </label>
-            <select class="input" name="preferredActivityId" id="preferredActivityId" class="input"
+            <select class="registerEmployee_container_form_input" name="preferredActivityId" id="preferredActivityId"
                 formControlName="preferredActivityId">
                 <ng-container *ngFor="let activity of (preferredActivities$ | async )">
                     <option [value]="activity.Id">{{activity.Name}}</option>
                 </ng-container>
             </select>
 
-            <label class="checkbox-label" for="preferredActivityId">Eet voorkeuren </label>
-            <div class="checkboxContainer">
-                <input class="checkbox" type="checkbox" formControlName="vegan" id="vegan">
+            <label for="preferredActivityId">Eet voorkeuren </label>
+            <div class="registerEmployee_container_form_checkboxContainer">
+                <input class="registerEmployee_container_form_checkboxContainer_checkbox" type="checkbox"
+                    formControlName="vegan" id="vegan">
                 <label for="vegan">Veganistisch</label>
             </div>
-            <div class="checkboxContainer">
-                <input class="checkbox" type="checkbox" formControlName="vegetarian" id="vegetarian">
+            <div class="registerEmployee_container_form_checkboxContainer">
+                <input class="registerEmployee_container_form_checkboxContainer_checkbox" type="checkbox"
+                    formControlName="vegetarian" id="vegetarian">
                 <label for="vegetarian">Vegetarisch</label>
             </div>
-            <div class="checkboxContainer">
-                <input class="checkbox" type="checkbox" formControlName="glutenFree" id="glutenFree">
+            <div class="registerEmployee_container_form_checkboxContainer">
+                <input class="registerEmployee_container_form_checkboxContainer_checkbox" type="checkbox"
+                    formControlName="glutenFree" id="glutenFree">
                 <label for="glutenFree">Geen gluten</label>
             </div>
-            <div class="checkboxContainer">
-                <input class="checkbox" type="checkbox" formControlName="lactoseFree" id="lactoseFree">
+            <div class="registerEmployee_container_form_checkboxContainer">
+                <input class="registerEmployee_container_form_checkboxContainer_checkbox checkbox" type="checkbox"
+                    formControlName="lactoseFree" id="lactoseFree">
                 <label for="lactoseFree">Geen lactose</label>
             </div>
-            <div class="checkboxContainer">
-                <input class="checkbox checkbox_hasEnteredFormTruthfullyInput" type="checkbox" formControlName="hasEnteredFormTruthfully"
-                    id="hasEnteredFormTruthfully">
+            <div class="registerEmployee_container_form_checkboxContainer">
+                <input type="checkbox" formControlName="hasEnteredFormTruthfully" id="hasEnteredFormTruthfully">
                 <label for="hasEnteredFormTruthfully">Ik verklaar dat dit formulier naar waarheid is ingevuld</label>
             </div>
-
-            <button class="btn" type="submit" [disabled]="!registrationForm.valid">Submit</button>
         </form>
-
     </div>
 </div>
