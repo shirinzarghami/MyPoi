@@ -22,7 +22,8 @@ export class EmployeeFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private registerEmployeeService: RegisterEmployeeService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    if (this.route.snapshot.params.id) {
+    debugger
+    if (this.route?.snapshot?.params?.id) {
       this.ShowEmployeeDetails();
     }
     this.preferredActivities$ = this.registerEmployeeService.getActivity();
@@ -54,11 +55,11 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   private ShowEmployeeDetails(): void {
+    this.isNewEmployee = false;
     this.registerEmployeeService.geEmployee(this.route.snapshot.params.id).subscribe(
       selectedEmployee => {
         this.registrationForm.patchValue(selectedEmployee);
         this.registrationForm.disable();
-        this.isNewEmployee = false;
         this.pageTitel = `${selectedEmployee?.GivenName} ${selectedEmployee?.FamilyName}`
       })
   }
